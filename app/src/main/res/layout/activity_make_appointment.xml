@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MakeAppointmentActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="608dp"
+        android:layout_above="@+id/ib_subRequest"
+        android:layout_marginBottom="23dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="130dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="165dp"
+                    android:layout_marginBottom="15dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/appointment_pic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_contact_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+                <!-- android:background="@drawable/item_bg"-->
+
+                <TextView
+                    android:id="@+id/mk_contact"
+                    android:layout_width="223dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:text="Contact Details"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_change_detail"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.7"
+                    android:gravity="center_vertical"
+                    android:text="Change >"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/item_bg"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center"
+                    android:text="Name"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_username_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.7"
+                    android:gravity="center_vertical"
+                    android:textColor="#333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/item_bg"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center"
+                    android:text="Phone number"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_phone_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.7"
+                    android:gravity="center_vertical"
+                    android:textColor="#333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/item_bg"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center"
+                    android:text="Address"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_address_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#333"
+                    android:layout_weight="2.7"
+                    android:autoLink="map"
+                    android:gravity="center_vertical"
+                    android:paddingRight="5dp"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/item_bg"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center"
+                    android:text="Postcode"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_postcode_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.7"
+                    android:gravity="center_vertical"
+                    android:textColor="#333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tv_collection_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1.9"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+                <!-- android:background="@drawable/item_bg"-->
+
+                <TextView
+                    android:layout_width="223dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:text="Appointment Time"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.7"
+                    android:gravity="center_vertical"
+                    android:text="Change >"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/item_bg"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center"
+                    android:text="Time"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_confirm_request_time_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.7"
+                    android:gravity="center_vertical"
+                    android:textColor="#333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/item_bg"
+                android:minHeight="41dp"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center"
+                    android:text="Day"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_confirm_request_day_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.7"
+                    android:gravity="center_vertical"
+                    android:textColor="#333"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/ib_subRequest"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/btn_bg"
+        android:gravity="center"
+        android:onClick="onSubmit"
+        android:text="Confirm completed"
+        android:textColor="#fff"
+        android:textSize="17dp" />
+
+</RelativeLayout>

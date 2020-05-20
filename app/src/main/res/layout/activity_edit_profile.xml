@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your name:" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/first_name_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="first name"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/last_name_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="last name"
+            android:layout_marginStart="10dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Address"
+        android:layout_marginTop="20dp"/>
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="address"
+        android:id="@+id/address_edit"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Postcode"
+        android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="postcode"
+        android:id="@+id/postcode_edit"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save changes"
+            android:id="@+id/btn_save_edit"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="cancel"
+            android:textColor="#FF0000"
+            android:id="@+id/btn_cancel_edit"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,17 @@
+
+<resources>
+    <string name="app_name">Eye Protector</string>
+    <string name="facebook_application_id">406505316910490</string>
+    <string name="fb_login_protocol_scheme">fb406505316910490</string>
+
+    <string name="mainPageContent">Eye Protector is an innovative application which can help you get diagnose in a convenient and quicker way. You can also chat with a doctor to get details.</string>
+    <string name="title_home">Home</string>
+    <string name="title_Make_Diagnose">Make Diagnose</string>
+    <string name="title_Make_appointment">Make Appointment</string>
+    <string name="title_Chat">Chat with Staff</string>
+    <string name="title_Profile">Profile</string>
+    <string name="title_My_Results">My Results</string>
+    <string name="title_My_Appoinments">My Appoinments</string>
+    <string name="title_Edit_Profile">Edit Profile</string>
+</resources>
+

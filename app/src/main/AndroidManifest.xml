@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="comp5216.sydney.edu.au.garbagecollection">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MakeDiagnoseActivity"
+                  android:label="@string/title_Make_Diagnose"/>
+
+        <activity android:name=".ChatActivity"
+                  android:label="@string/title_Chat"/>
+
+        <activity android:name=".ProfileActivity"
+                  android:label="@string/title_Profile"/>
+
+        <activity android:name=".MakeAppointmentActivity"
+                  android:label="@string/title_Make_appointment" />
+
+        <activity android:name=".EditProfileActivity"
+                  android:label="@string/title_Edit_Profile" />
+
+        <activity android:name=".ResultsActivity"
+                  android:label="@string/title_My_Results" />
+
+        <activity android:name=".RequestsActivity"
+                  android:label="@string/title_My_Appoinments" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="comp5216.sydney.edu.au.garbagecollection.fileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

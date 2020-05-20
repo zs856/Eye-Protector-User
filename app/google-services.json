@@ -1,0 +1,179 @@
+{
+  "project_info": {
+    "project_number": "528708286037",
+    "firebase_url": "https://garbage-collection-d23e4.firebaseio.com",
+    "project_id": "garbage-collection-d23e4",
+    "storage_bucket": "garbage-collection-d23e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528708286037:android:ee13b6cfe477ca1d4e86dc",
+        "android_client_info": {
+          "package_name": "comp5216.sydney.edu.au.garbagecollection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528708286037-52telt01pnq0odg60ikg7pkhmgbtl591.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "comp5216.sydney.edu.au.garbagecollection",
+            "certificate_hash": "5a253fa2dec49c7d45b139d90a7353e48135ba08"
+          }
+        },
+        {
+          "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528708286037:android:c77f46f7c42c463a4e86dc",
+        "android_client_info": {
+          "package_name": "comp5216.sydney.edu.au.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528708286037-ht9stu8jdk8q6dfmpblrkop6nr3lqqr9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "comp5216.sydney.edu.au.login",
+            "certificate_hash": "5a253fa2dec49c7d45b139d90a7353e48135ba08"
+          }
+        },
+        {
+          "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528708286037:android:8b87924701ecb3734e86dc",
+        "android_client_info": {
+          "package_name": "comp5216.sydney.edu.au.staff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528708286037:android:644bf43a0a36819a4e86dc",
+        "android_client_info": {
+          "package_name": "comp5216.sydney.edu.au.staff3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        },
+        {
+          "current_key": "AIzaSyDMnMgbUIYbJp3hQBrQHNzx2SbC6p7LtXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528708286037-lu520damin4tel0571jr2vlov64vbhjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
