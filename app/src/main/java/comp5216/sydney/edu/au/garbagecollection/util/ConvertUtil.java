@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comp5216.sydney.edu.au.garbagecollection.mode.Request;
+import comp5216.sydney.edu.au.garbagecollection.mode.Results;
 import comp5216.sydney.edu.au.garbagecollection.mode.User;
 
 public class ConvertUtil {
@@ -70,6 +71,23 @@ public class ConvertUtil {
     }
 
     /**
+     * convert from {@link DocumentSnapshot} to {@link Request}
+     * @param obj
+     * @return
+     */
+    public static Results convertToResults(DocumentSnapshot obj) {
+        if (obj == null) {
+            return null;
+        }
+        Results results = new Results();
+        results.setSeverity((String) getValue(obj, "severity"));
+        results.setTimestamp(obj.getTimestamp("timestamp"));
+        results.setUser(obj.getDocumentReference("user id"));
+        results.setPath(obj.getReference().getPath());
+        return results;
+    }
+
+    /**
      * convert from {@link DocumentSnapshot} to {@link List< Request >}
      * @param documents
      * @return
@@ -85,6 +103,21 @@ public class ConvertUtil {
         return requests;
     }
 
+    /**
+     * convert from {@link DocumentSnapshot} to {@link List< Request >}
+     * @param documents
+     * @return
+     */
+    public static List<Results> convertToResults(QuerySnapshot documents) {
+        if (documents == null) {
+            return null;
+        }
+        List<Results> results = new ArrayList<>();
+        for (QueryDocumentSnapshot document : documents) {
+            results.add(convertToResults(document));
+        }
+        return results;
+    }
     /**
      * get value from {@link DocumentSnapshot} by key
      * @param obj
