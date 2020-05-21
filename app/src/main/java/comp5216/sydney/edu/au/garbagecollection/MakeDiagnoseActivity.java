@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +33,7 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
     ImageView imageView;
     TextView textView;
     TextView capture;
+    TextView upload_photo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +44,31 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
         classifier = new Classifier(Utils.assetFilePath(this,"mobilenet-v2.pt"));
 
         TextView capture = findViewById(R.id.ib_subRequest);
+
         imageView = findViewById(R.id.diagnose_eye_image);
         textView = findViewById(R.id.diagnose_level);
+        upload_photo = findViewById(R.id.diagnose_upload_photo);
+
         capture.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+
+                //第二个参数是需要申请的权限
+
+                prediction();
+
+
+
+                //startActivityForResult(cameraIntent,cameraRequestCode);
+
+            }
+
+
+        });
+
+
+        upload_photo.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
@@ -80,12 +104,12 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
                 Bitmap bit = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
                 //resultView.putExtra("imagedata",bit);
                 //imageView.setImageBitmap(bit);
-                String pred = classifier.predict(bit);
+                //String pred = classifier.predict(bit);
 
                 imageView.setImageBitmap(bit);
 
 
-                textView.setText(pred);
+                //textView.setText(pred);
                 //resultView.putExtra("pred",pred);
                 //startActivity(resultView);
             } catch (Exception e) {
@@ -118,6 +142,19 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");//相片类型
         startActivityForResult(intent, REQUEST_CODE_PICK_IMAGE);
+
+    }
+    void prediction(){
+        /**
+         * 打开选择图片的界面
+         */
+
+        imageView.setDrawingCacheEnabled(true);
+        Bitmap bit = Bitmap.createBitmap(imageView.getDrawingCache());
+        imageView.setDrawingCacheEnabled(false);
+        String pred = classifier.predict(bit);
+        textView.setText(pred);
+
 
     }
 }
