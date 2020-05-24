@@ -41,7 +41,7 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
-        classifier = new Classifier(Utils.assetFilePath(this,"mobilenet-v2.pt"));
+        classifier = new Classifier(Utils.assetFilePath(this,"mynet_new_2.pt"));
 
         TextView capture = findViewById(R.id.ib_subRequest);
 
