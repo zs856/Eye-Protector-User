@@ -1,10 +1,14 @@
 package comp5216.sydney.edu.au.garbagecollection;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -67,20 +71,32 @@ public class ItemResultAdapter extends BaseAdapter {
 
         holder.time.setVisibility(View.VISIBLE);
 
+//        holder.eyeImage.setVisibility(View.VISIBLE);
+
         if (object.getTimestamp() != null) {
             holder.time.setText("Created time: " + object.getTimestamp().toDate().toString());
         } else {
             holder.time.setVisibility(View.GONE);
         }
+//
+//        if (object.getImageUrl()!= null) {
+//            holder.eyeImage. setImageBitmap(object.getImageUrl());
+//        } else {
+//            holder.eyeImage.setVisibility(View.GONE);
+//        }
     }
+
 
     protected class ViewHolder {
         private TextView name;
         private TextView time;
+        private ImageView eyeImage;
 
         public ViewHolder(View view) {
             name = (TextView) view.findViewById(R.id.name);
             time = (TextView) view.findViewById(R.id.time);
+//            eyeImage = (ImageView) view.findViewById(R.id.eyeImage);
+
         }
     }
 }

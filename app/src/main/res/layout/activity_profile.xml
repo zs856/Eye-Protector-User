@@ -35,20 +35,18 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_proUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
-                android:text="Sophie" />
+                android:text="UID:" />
 
             <TextView
                 android:id="@+id/tv_proID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="ID:123456" />
+                android:layout_marginTop="10dp" />
 
         </LinearLayout>
 

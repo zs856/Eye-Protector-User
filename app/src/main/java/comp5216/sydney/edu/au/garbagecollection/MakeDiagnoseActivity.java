@@ -28,6 +28,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,7 +49,8 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
     Classifier classifier;
     ImageView imageView;
     TextView textView;
-    TextView capture;
+    public final String APP_TAG = "CS53";
+
 
     String userId;
 
@@ -56,9 +61,6 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagnose);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
         classifier = new Classifier(Utils.assetFilePath(this,"mobilenet-v2.pt"));
 
         TextView capture = findViewById(R.id.ib_subRequest);
@@ -72,10 +74,6 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
                 //第二个参数是需要申请的权限
 
                 choosePhone(view);
-
-                //Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-                //startActivityForResult(cameraIntent,cameraRequestCode);
 
             }
 
@@ -91,52 +89,28 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         String pred = null;
+        Bitmap bit = null;
+        Uri uri = null;
 
         if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK){
             try {
                 /**
                  * 该uri是上一个Activity返回的
                  */
-                //Intent resultView = new Intent(this,Result.class);
-                Uri uri = data.getData();
 
-                Bitmap bit = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
-                //resultView.putExtra("imagedata",bit);
-                //imageView.setImageBitmap(bit);
+                uri = data.getData();
+                bit = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
                 pred = classifier.predict(bit);
 
                 imageView.setImageBitmap(bit);
                 textView.setText(pred);
-                //resultView.putExtra("pred",pred);
-                //startActivity(resultView);
+
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.d("tag", e.getMessage());
                 Toast.makeText(this, "程序崩溃", Toast.LENGTH_SHORT).show();
             }
-            final FirebaseFirestore db = FirebaseFirestore.getInstance();
-            sharedPreferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-            userId = sharedPreferences.getString("id","");
-            DocumentReference uid = db.collection("users").document(userId);
-            Map<String, Object> docData1 = new HashMap<>();
-            docData1.put("user id",uid);
-            docData1.put("severity", pred);
-            docData1.put("timestamp", new Timestamp(new Date()));
-            db.collection("diagnosisResults")
-                    .add(docData1)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(MakeDiagnoseActivity.this, "Results has been sent", Toast.LENGTH_LONG).show();
-                            finish();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //Log.w(TAG, "Error adding document", e);
-                        }
-                    });
+
         }
         else {
             Log.i("liang", "失败");
@@ -144,6 +118,7 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
 
 
     }
+
     public void choosePhone(View view){
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)

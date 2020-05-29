@@ -51,7 +51,17 @@
                     android:layout_weight="1.9"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
-                    android:text="Click button to upload photo and get diagnose"
+                    android:text="upload photo and get diagnose"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/upload_eye_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.9"
+                    android:gravity="center_vertical"
+                    android:text="Change >"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="16dp" />
 
             </LinearLayout>
@@ -121,7 +131,7 @@
         android:layout_marginBottom="27dp"
         android:background="@drawable/btn_bg"
         android:gravity="center"
-        android:text="Upload Photo &amp; Make Diagnose"
+        android:text="Make Diagnose"
         android:textColor="#fff"
         android:textSize="17dp" />
 

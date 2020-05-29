@@ -82,6 +82,7 @@ public class ConvertUtil {
         Results results = new Results();
         results.setSeverity((String) getValue(obj, "severity"));
         results.setTimestamp(obj.getTimestamp("timestamp"));
+        results.setImageUrl((String) getValue(obj,"imageUrl"));
         results.setUser(obj.getDocumentReference("user id"));
         results.setPath(obj.getReference().getPath());
         return results;

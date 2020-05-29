@@ -1,10 +1,11 @@
 package comp5216.sydney.edu.au.garbagecollection.mode;
 
+import android.graphics.Bitmap;
+
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * user Java bean
@@ -15,6 +16,7 @@ public class Results implements Serializable {
     private String severity;
     private Timestamp timestamp;
     private String path;
+    private String imageUrl;
     private DocumentReference user;
 
     public Results() {
@@ -26,6 +28,11 @@ public class Results implements Serializable {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getReId() {
