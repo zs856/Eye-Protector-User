@@ -61,6 +61,12 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagnose);
+<<<<<<< HEAD
+=======
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+
+>>>>>>> parent of 5a31eb3... I have changed the model to our own
         classifier = new Classifier(Utils.assetFilePath(this,"mobilenet-v2.pt"));
 
         TextView capture = findViewById(R.id.ib_subRequest);

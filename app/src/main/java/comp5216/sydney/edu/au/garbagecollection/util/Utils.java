@@ -12,10 +12,8 @@ import java.util.Arrays;
 
 public class Utils {
   public static String assetFilePath(Context context, String assetName) {
-    Log.i("ReadPath", "process " + assetName + " to file path Begin");
     File file = new File(context.getFilesDir(), assetName);
     if (file.exists() && file.length() > 0) {
-      Log.i("ReadPath", "returning path1");
       return file.getAbsolutePath();
     }
 
@@ -28,10 +26,9 @@ public class Utils {
         }
         os.flush();
       }
-      Log.i("ReadPath", "returning path2");
       return file.getAbsolutePath();
     } catch (IOException e) {
-      Log.e("ReadPath", "Error process asset " + assetName + " to file path");
+      //Log.e(Constants.TAG, "Error process asset " + assetName + " to file path");
     }
     return null;
   }

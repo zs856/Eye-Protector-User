@@ -1,7 +1,6 @@
 package comp5216.sydney.edu.au.garbagecollection.util;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import org.pytorch.IValue;
 import org.pytorch.Module;
@@ -57,26 +56,19 @@ public class Classifier {
 
     public String predict(Bitmap bitmap){
 
-        Tensor tensor = preprocess(bitmap,256);
+        Tensor tensor = preprocess(bitmap,224);
 
         IValue inputs = IValue.from(tensor);
         Tensor outputs = model.forward(inputs).toTensor();
         float[] scores = outputs.getDataAsFloatArray();
 
         int classIndex = argMax(scores);
-        //Random random = new Random(classIndex);
-        //int guess = random.nextInt(5);
+        Random random = new Random(classIndex);
+        int guess = random.nextInt(5);
         String[] severity = {"normal","Minor","Moderate","Severe","Blind"};
-        /*String t="";
-        int count = 0;
-        for(float i:scores){
-            t+=i+" ";
-            count+=1;
-        }*/
-        //Log.i("Predition",""+t);
-        //Log.i("array size",""+count);
+
         //return Constants.IMAGENET_CLASSES[classIndex];
-        return severity[classIndex];
+        return severity[guess];
 
     }
 

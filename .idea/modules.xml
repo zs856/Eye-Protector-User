@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Garbage.iml" filepath="$PROJECT_DIR$/Garbage.iml" group="Garbage" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Garbage/app" />
+      <module fileurl="file://$PROJECT_DIR$/Eye-Protector-User.iml" filepath="$PROJECT_DIR$/Eye-Protector-User.iml" />
     </modules>
   </component>
 </project>
