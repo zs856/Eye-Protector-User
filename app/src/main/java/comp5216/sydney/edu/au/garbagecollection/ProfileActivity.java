@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
     TextView mUserName;
+    TextView mUserID;
     LinearLayout editProfile;
     LinearLayout myRequests;
     LinearLayout fetchResults;
@@ -89,15 +90,10 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void setUserProfile() {
-        mUserName = findViewById(R.id.tv_proUserName);
-
+        mUserID = findViewById(R.id.tv_proID);
         SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-        String userName = sharedPreferences.getString("firstname", "") + sharedPreferences.getString("lastname","");
-        String address = sharedPreferences.getString("address", "");
-        String phone = sharedPreferences.getString("phone", "");
-        String postcode = sharedPreferences.getString("postcode", "");
-        Log.d(TAG, "setUserProfile: ==================================" + userName);
-        mUserName.setText(userName);
+        String  userId = sharedPreferences.getString("id","");
+        mUserID.setText(userId);
     }
 
 }

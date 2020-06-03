@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.CollationElementIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,7 @@ public class ItemRequestAdapter extends BaseAdapter {
      */
     private void initializeViews(Request object, ViewHolder holder) {
         holder.name.setText("Name: " + object.getName());
+        holder.status.setText("Status: " + object.getStatus());
         holder.time.setVisibility(View.VISIBLE);
         // show collect time
         if (Request.STATUS_UNCOMPLETED.equalsIgnoreCase(object.getStatus()) && object.getScheduledTime() != null) {
@@ -85,12 +87,14 @@ public class ItemRequestAdapter extends BaseAdapter {
     }
 
     protected class ViewHolder {
+        public TextView status;
         private TextView name;
         private TextView time;
 
         public ViewHolder(View view) {
             name = (TextView) view.findViewById(R.id.name);
             time = (TextView) view.findViewById(R.id.time);
+            status = (TextView) view.findViewById(R.id.status);
         }
     }
 }

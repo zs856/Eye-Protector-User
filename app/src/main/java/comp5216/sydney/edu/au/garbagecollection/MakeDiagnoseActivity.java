@@ -1,16 +1,18 @@
 package comp5216.sydney.edu.au.garbagecollection;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +22,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import comp5216.sydney.edu.au.garbagecollection.util.Classifier;
 import comp5216.sydney.edu.au.garbagecollection.util.Utils;
@@ -32,23 +49,23 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
     Classifier classifier;
     ImageView imageView;
     TextView textView;
-    TextView capture;
-    TextView upload_photo;
+    public final String APP_TAG = "CS53";
+
+
+    String userId;
+
+    SharedPreferences sharedPreferences;
+    final String PREFERENCES = "user info";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diagnose);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        classifier = new Classifier(Utils.assetFilePath(this,"mynet_new_2.pt"));
+        classifier = new Classifier(Utils.assetFilePath(this,"mobilenet-v2.pt"));
 
         TextView capture = findViewById(R.id.ib_subRequest);
-
         imageView = findViewById(R.id.diagnose_eye_image);
         textView = findViewById(R.id.diagnose_level);
-        upload_photo = findViewById(R.id.diagnose_upload_photo);
-
         capture.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -56,30 +73,7 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
 
                 //第二个参数是需要申请的权限
 
-                prediction();
-
-
-
-                //startActivityForResult(cameraIntent,cameraRequestCode);
-
-            }
-
-
-        });
-
-
-        upload_photo.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-
-                //第二个参数是需要申请的权限
-
                 choosePhone(view);
-
-                //Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-                //startActivityForResult(cameraIntent,cameraRequestCode);
 
             }
 
@@ -93,35 +87,38 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK)
+
+        String pred = null;
+        Bitmap bit = null;
+        Uri uri = null;
+
+        if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK){
             try {
                 /**
                  * 该uri是上一个Activity返回的
                  */
-                //Intent resultView = new Intent(this,Result.class);
-                Uri uri = data.getData();
 
-                Bitmap bit = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
-                //resultView.putExtra("imagedata",bit);
-                //imageView.setImageBitmap(bit);
-                //String pred = classifier.predict(bit);
+                uri = data.getData();
+                bit = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
+                pred = classifier.predict(bit);
 
                 imageView.setImageBitmap(bit);
+                textView.setText(pred);
 
-
-                //textView.setText(pred);
-                //resultView.putExtra("pred",pred);
-                //startActivity(resultView);
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.d("tag", e.getMessage());
                 Toast.makeText(this, "程序崩溃", Toast.LENGTH_SHORT).show();
             }
+
+        }
         else {
             Log.i("liang", "失败");
         }
 
+
     }
+
     public void choosePhone(View view){
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -142,19 +139,6 @@ public class MakeDiagnoseActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");//相片类型
         startActivityForResult(intent, REQUEST_CODE_PICK_IMAGE);
-
-    }
-    void prediction(){
-        /**
-         * 打开选择图片的界面
-         */
-
-        imageView.setDrawingCacheEnabled(true);
-        Bitmap bit = Bitmap.createBitmap(imageView.getDrawingCache());
-        imageView.setDrawingCacheEnabled(false);
-        String pred = classifier.predict(bit);
-        textView.setText(pred);
-
 
     }
 }
